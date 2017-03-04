@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<?php
 
-  <title>SCM4 Book Shop | Dev</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+require_once ('inc/bootstrap.inc.php');
 
-  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-  <link href="assets/main.css" rel="stylesheet">
+$default_view = 'welcome';
+$view = $default_view;
+//$view = $_REQUEST['view'] ? $_REQUEST['view'] : $default_view;
+//$view = $_REQUEST['view'] ?? 'welcome';   //similar, but doesn't show welcome when parameter view = ''
 
-</head>
-<body>
+print $view;
 
-<h1>SCM4 Book Shop</h1>
+if (isset($_REQUEST['view']) &&
+    file_exists(__DIR__ . '/views/' . $_REQUEST['view'] . '.php')
+) {
+    $view = $_REQUEST['view'];
+}
 
-<script src="assets/jquery-1.11.2.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-
-</body>
-</html>
+require_once ('views/' . $view . '.php');
