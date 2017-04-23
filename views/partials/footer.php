@@ -1,16 +1,19 @@
+
 <!--display error messages-->
+
+<!--/display error messages-->
 <div class="footer">
-    <!--display cart info-->
-    <hr />
-    <div class="col-sm-8">
-        <button class="btn btn-primary btn-xs" type="button">
-            <span class="badge">0</span> items in cart
-        </button>
-    </div>
-    <div class="col-sm-4 pull-right">
-        <p><?php print date('r')?></p>
-    </div>
-    <!--/display cart info-->
+	<!--display cart info-->
+	<hr />
+	<div class="col-sm-8">
+		<button class="btn btn-primary btn-xs" type="button">
+			<span class="badge"><?php print Bookshop\ShoppingCart::size(); ?></span> items in cart
+		</button>
+	</div>
+	<div class="col-sm-4 pull-right">
+		<p><?php print date('r'); ?></p>
+	</div>
+	<!--/display cart info-->
 </div>
 </div> <!-- container -->
 
